@@ -5,10 +5,10 @@ const scramjet = new ScramjetServiceWorker();
 //  Get list of blacklisted domains.
 const blacklist = {},
   nativeFunction = Function;
-fetch('{{route}}{{/assets/json/blacklist.json}}').then((request) => {
-  request.json().then((jsonData) => {
+fetch('{{route}}{{/assets/txt/blacklist.txt}}').then((request) => {
+  request.text().then((textData) => {
     // Organize each domain by their tld (top level domain) ending.
-    jsonData.forEach((domain) => {
+    textData.split('\n').filter(domain => domain.trim()).forEach((domain) => {
       const domainTld = domain.replace(/.+(?=\.\w)/, '');
       if (!blacklist.hasOwnProperty(domainTld)) blacklist[domainTld] = [];
 
