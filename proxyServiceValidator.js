@@ -104,7 +104,7 @@ const testServerResponse = async () => {
     'http://localhost:8080/assets/js/csel.js',
     'http://localhost:8080/assets/js/register-sw.js',
     'http://localhost:8080/assets/json/emu-nav.json',
-    'http://localhost:8080/assets/json/blacklist.json',
+    'http://localhost:8080/assets/txt/blacklist.txt',
     'http://localhost:8080/assets/json/emulib-nav.json',
     'http://localhost:8080/assets/json/flash-nav.json',
     'http://localhost:8080/assets/json/h5-nav.json',
