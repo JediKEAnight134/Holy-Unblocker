@@ -53,13 +53,6 @@
       <div class="radio-group">
         <label>
           <p>
-            Hide History
-            <span class="alt-badge">{{mask}}{{Experimental}}</span>
-          </p>
-          <input type="checkbox" class="switch hidehistory" />
-        </label>
-        <label>
-          <p>
             {{mask}}{{Prevent Tab Leaks}}
             <span class="default-badge"
               >{{mask}}{{Breaks Some Sites}}</span
@@ -132,6 +125,16 @@
             <option value="off">Off</option>
             <option value="eu">Sweden</option>
             <option value="jp">Japan</option>
+          </select>
+        </label>
+        <label>
+          <p>
+            {{mask}}{{Hide History}}
+            <span class="default-badge">{{mask}}{{Experimental}}</span>
+          </p>
+          <select class="history-toggle">
+            <option value="none" selected>Off</option>
+            <option value="hidehistory">Enabled</option>
           </select>
         </label>
         <label>

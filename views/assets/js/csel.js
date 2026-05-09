@@ -466,14 +466,13 @@ if (document.getElementById('csel')) {
     if (e.isTrusted) location.reload();
   });
 
-  attachClassEventListener('hidehistory', 'change', (e) => {
-    if (checkBooleanState(e.target) === true) {
-      setStorage('HistoryHide', true);
-      setCookie('HistoryHide', 'true');
-    } else {
-      removeStorage('HistoryHide');
-      removeCookie('HistoryHide');
-    }
+  attachClassEventListener('history-toggle', 'change', (e) => {
+    const value = e.target.value;
+
+    value === 'none'
+      ? (removeStorage('HistoryHide'), removeCookie('HistoryHide'))
+      : (setStorage('HistoryHide', value), setCookie('HistoryHide', 'true'));
+
     if (e.isTrusted) location.reload();
   });
 
@@ -552,8 +551,12 @@ useStorageArgs('UseSocks5', (s) => {
 });
 
 useStorageArgs('HistoryHide', (s) => {
-  if (s === true) {
-    classUpdateHandler(document.getElementsByClassName('hidehistory'), 'on')();
+  classUpdateHandler(
+    document.getElementsByClassName('history-toggle'),
+    s || 'none'
+  )();
+
+  if (s === 'hidehistory') {
     setCookie('HistoryHide', 'true');
   } else {
     removeCookie('HistoryHide');
