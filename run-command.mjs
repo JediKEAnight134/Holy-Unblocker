@@ -325,7 +325,7 @@ commands: for (let i = 2; i < process.argv.length; i++)
         );
       else
         exec(
-          'npx pm2 kill; pkill -f "node backend.js" || true',
+          'npx pm2 delete ecosystem.config.js; pkill node',
           (error, stdout) => {
             console.log('[Kill]', stdout);
           }

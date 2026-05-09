@@ -522,6 +522,7 @@ This project currently uses Scramjet and Ultraviolet as web proxies adhering to 
 - <a href="https://github.com/fastify/fastify-static">@fastify/static</a>
 - <a href="https://github.com/DerpmanDev/modal">Modal</a>
 - <a href="https://github.com/BinBashBanana/webretro">webretro</a>
+- <a href="https://github.com/hagezi/dns-blocklists">hagezi DNS Blocklists</a>
 - <a href="https://ruffle.rs/">Ruffle</a>
 - <a href="https://github.com/michalsnik/aos">AOS</a>
 - <a href="https://github.com/nordtheme">Nord Theme</a>
