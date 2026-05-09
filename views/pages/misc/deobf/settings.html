@@ -53,6 +53,22 @@
       <div class="radio-group">
         <label>
           <p>
+            Hide History
+            <span class="alt-badge">{{mask}}{{Experimental}}</span>
+          </p>
+          <input type="checkbox" class="switch hidehistory" />
+        </label>
+        <label>
+          <p>
+            {{mask}}{{Prevent Tab Leaks}}
+            <span class="default-badge"
+              >{{mask}}{{Breaks Some Sites}}</span
+            >
+          </p>
+          <input type="checkbox" class="switch sandbox" />
+        </label>
+        <label>
+          <p>
             Hide Ads
             <span class="default-badge">{{mask}}{{Layered Adblocking}}</span>
           </p>
@@ -74,7 +90,7 @@
         </label>
       </div>
     </div>
-    <div class="settings-right-column">
+    <div class="csel-container-right">
       <p class="cseltitle">Search Engine</p>
       <select class="search-engine-list">
         <option>{{DuckDuckGo}}</option>
@@ -116,6 +132,17 @@
             <option value="off">Off</option>
             <option value="eu">Sweden</option>
             <option value="jp">Japan</option>
+          </select>
+        </label>
+        <label>
+          <p>
+            {{mask}}{{Window Type}}
+            <span class="default-badge">{{mask}}{{about:blank | blob}}</span>
+          </p>
+          <select class="cloak-type-list">
+            <option name="cloak-type" value="none" checked>Off</option>
+            <option name="cloak-type" value="blank">{{mask}}{{about:blank}}</option>
+            <option name="cloak-type" value="blob">{{mask}}{{blob}}</option>
           </select>
         </label>
       </div>

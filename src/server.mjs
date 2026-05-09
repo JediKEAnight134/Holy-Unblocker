@@ -329,6 +329,19 @@ else {
   });
 }
 
+app.addHook('onSend', (request, reply, payload, done) => {
+  const cookieHeader = request.headers['cookie'] || '';
+  const historyHide = cookieHeader
+    .split('; ')
+    .find(c => c.startsWith('HistoryHide='))
+    ?.split('=')[1];
+
+  if (historyHide === 'true' && request.headers['sec-fetch-dest'] === 'document') {
+    reply.code(404);
+  }
+  done(null, payload);
+});
+
 app.listen({ port: serverUrl.port, host: serverUrl.hostname });
 console.log(`InvisiProxy is listening on port ${serverUrl.port}.`);
 console.log(`When hosting with a reverse proxy please ensure you are using NGINX only.\nCaddy and Apache have security risks due to wisp-js and loopbacks. Please configure them correctly.\nNGINX is recommended and used for production. Ports are whitelisted and security is maintained with NGINX only.`);

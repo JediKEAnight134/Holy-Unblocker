@@ -1,7 +1,6 @@
 /* -----------------------------------------------
-/* Authors: OlyB and Yoct
+/* Authors: Yoct, OlyB, b4kt
 /* GNU Affero General Public License v3.0: https://www.gnu.org/licenses/agpl-3.0.en.html
-/* Adapted and modified by Yoct.
 /* Settings Menu
 /* ----------------------------------------------- */
 
@@ -196,7 +195,7 @@ if (document.getElementById('csel')) {
       // Allow users to reset the title to default if nothing is entered.
       focusElement.focus();
       removeStorage('Title');
-      pageTitle('InvisiProxy LTS');
+      pageTitle('{{mask}}{{InvisiProxy LTS}}');
     }
   });
 
@@ -436,6 +435,23 @@ if (document.getElementById('csel')) {
     else removeStorage('UseAC');
   });
 
+  attachClassEventListener('sandbox', 'change', (e) => {
+    if (checkBooleanState(e.target) === true) {
+      setStorage('Sandbox', true);
+    } else {
+      removeStorage('Sandbox');
+    }
+    if (e.isTrusted) location.reload();
+  });
+
+  attachClassEventListener('cloak-type-list', 'change', (e) => {
+    const value = e.target.value;
+    value === 'none'
+      ? removeStorage('LaunchType')
+      : setStorage('LaunchType', value);
+    if (e.isTrusted) location.reload();
+  });
+
   attachClassEventListener('region-list', 'change', (e) => {
     const isOff = checkBooleanState(e.target) === false;
     isOff
@@ -447,6 +463,17 @@ if (document.getElementById('csel')) {
     let torCheck = document.getElementsByClassName('useonion');
     if (!isOff && checkBooleanState(torCheck[0]) === true)
       classUpdateHandler(torCheck, 'off')();
+    if (e.isTrusted) location.reload();
+  });
+
+  attachClassEventListener('hidehistory', 'change', (e) => {
+    if (checkBooleanState(e.target) === true) {
+      setStorage('HistoryHide', true);
+      setCookie('HistoryHide', 'true');
+    } else {
+      removeStorage('HistoryHide');
+      removeCookie('HistoryHide');
+    }
     if (e.isTrusted) location.reload();
   });
 
@@ -524,6 +551,15 @@ useStorageArgs('UseSocks5', (s) => {
   else if ('string' === typeof s) classUpdateHandler(regionList, s)();
 });
 
+useStorageArgs('HistoryHide', (s) => {
+  if (s === true) {
+    classUpdateHandler(document.getElementsByClassName('hidehistory'), 'on')();
+    setCookie('HistoryHide', 'true');
+  } else {
+    removeCookie('HistoryHide');
+  }
+});
+
 /*
 useStorageArgs('ErudaEnabled', (s) => {
   const erudaSwitch = document.getElementsByClassName('eruda');
@@ -537,5 +573,18 @@ useStorageArgs('ErudaEnabled', (s) => {
 useStorageArgs('UseAC', (s) => {
   if (s === false)
     classUpdateHandler(document.getElementsByClassName('useac'), 'off')();
+});
+
+useStorageArgs('Sandbox', (s) => {
+  if (s === true) {
+    classUpdateHandler(document.getElementsByClassName('sandbox'), 'on')();
+  }
+});
+
+useStorageArgs('LaunchType', (s) => {
+  classUpdateHandler(
+    document.getElementsByClassName('cloak-type-list'),
+    s || 'none'
+  )();
 });
 })();

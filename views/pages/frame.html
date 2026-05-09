@@ -128,6 +128,20 @@
         return shouldRefresh;
       };
 
+      const applySandbox = () => {
+        const sandboxEnabled =
+          localStorage.getItem('{{hu-lts}}-storage') &&
+          JSON.parse(localStorage.getItem('{{hu-lts}}-storage')).Sandbox;
+        const sandboxPermissions =
+          'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-same-origin allow-scripts allow-downloads';
+
+        if (sandboxEnabled) {
+          windowFrame.setAttribute('sandbox', sandboxPermissions);
+        } else {
+          windowFrame.removeAttribute('sandbox');
+        }
+      };
+
       const loader = document.getElementsByClassName('loader')[0];
       const updateLoader = () => {
         if (windowFrame.contentWindow.location.href === 'about:blank') return;
@@ -162,6 +176,7 @@
             updateLoader
           );
           updateLoader();
+          applySandbox();
         });
       };
 

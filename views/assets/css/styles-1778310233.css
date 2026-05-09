@@ -757,8 +757,9 @@ details[open] summary {
   max-width: 400px;
 }
 
-.settings-right-column {
-  width: 300px;
+.csel-container-right {
+  flex: 2;
+  max-width: 380px;
 }
 
 .cseltitle {

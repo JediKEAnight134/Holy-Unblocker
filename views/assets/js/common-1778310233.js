@@ -1,5 +1,5 @@
 /* -----------------------------------------------
-/* Authors: QuiteAFancyEmerald, Yoct, and OlyB
+/* Authors: QuiteAFancyEmerald, Yoct, b4kt, and OlyB
 /* GNU Affero General Public License v3.0: https://www.gnu.org/licenses/agpl-3.0.en.html
 /* MAIN InvisiProxy LTS Common Script
 /* ----------------------------------------------- */
@@ -47,6 +47,45 @@ const getDomain = () =>
           else if (mode === 'window' || mode == 0) location.href = parser;
           else return parser;
         },
+  openBlankCloak = () => {
+      try {
+        const newWindow = window.open('about:blank', '_blank');
+        if (!newWindow) return null;
+        const iframe = newWindow.document.createElement('iframe');
+        const styles = {
+          border: 'none',
+          width: '100%',
+          height: '100%',
+          margin: '0',
+          overflow: 'hidden',
+        };
+        Object.assign(iframe.style, styles);
+        iframe.src = location.href;
+        newWindow.document.body.appendChild(iframe);
+        return newWindow;
+      } catch (e) {
+        console.error('Blank cloaking failed:', e);
+        return null;
+      }
+    },
+  openBlobCloak = () => {
+    try {
+      const icon =
+        (document.querySelector("link[rel*='icon']") || {}).href || '';
+      const html = `<!DOCTYPE html><html><head><title>${
+        document.title
+      }</title><link rel="icon" href="${icon}"><style>html,body{height:100%;margin:0;padding:0;overflow:hidden;}</style></head><body><iframe style="border:none;width:100%;height:100%;margin:0;overflow:hidden;" src="${
+        location.href
+      }"></iframe></body></html>`;
+      const blob = new Blob([html], { type: 'text/html' });
+      const blobUrl = URL.createObjectURL(blob);
+      const newWindow = window.open(blobUrl, '_blank');
+      return newWindow;
+    } catch (e) {
+      console.error('Blob cloaking failed:', e);
+      return null;
+    }
+  },
   // An asynchronous version of the function above, just in case.
   asyncUrlHandler = (parser) => async (url, mode) => {
     if (!url) return;
@@ -988,7 +1027,26 @@ const preparePage = async () => {
           break;
 
         // No default case.
+        }
       }
+    }
+
+    const isTopLevel = window.self === window.top;
+    if (isTopLevel) {
+      const launchType = readStorage('LaunchType');
+      let newWindow = null;
+
+      if (launchType === 'blank') {
+        newWindow = openBlankCloak();
+      } else if (launchType === 'blob') {
+        newWindow = openBlobCloak();
+      }
+
+      if (newWindow) {
+        window.location.replace('about:blank');
+        setTimeout(() => {
+          window.close();
+        }, 100);
     }
   }
 };
