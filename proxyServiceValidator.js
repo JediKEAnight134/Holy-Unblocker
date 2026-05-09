@@ -100,7 +100,7 @@ const testServerResponse = async () => {
     'http://localhost:8080/whiteboard', 
     'http://localhost:8080/notebook',
     'http://localhost:8080/assets/js/card.js',
-    'http://localhost:8080/assets/js/common-1735118314.js',
+    'http://localhost:8080/assets/js/common-1778310233.js',
     'http://localhost:8080/assets/js/csel.js',
     'http://localhost:8080/assets/js/register-sw.js',
     'http://localhost:8080/assets/json/emu-nav.json',
