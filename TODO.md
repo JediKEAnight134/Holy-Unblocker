@@ -1,18 +1,25 @@
 This will be our nonexhaustive todo list for InvisiProxy LTS v6.x.x and above. Release for production will be v8.x.x and above.
 
-## Proxy/Site Functionality
+## Priority
 
+- [ ] Class managling and DOM masquerading functionality to Scramjet (or stealth window) 
+- [ ] Font obfuscation middleware
+- [ ] Update to Scramjet V2.0.2
 - [ ] Update to use scramjetFrame instead of our own window handling
+- [ ] Implement multi-lang support!
+
+## Proxy/Site Functionality
 - [ ] Implement wisp python to the project instead of the unreliable wisp-server-node
 - [ ] Add booksmark menu (source wise already present pretty much)
 - [ ] Add Chii + ensuring users can access devtools while browsing - partial
-- [ ] Setting to open multiple stealth frames; basically about:blank but using our system. Pops out in another tab
 - [ ] Omnibox should state what the current site the user is on like a proper URL bar 
 - [ ] Improve adblocking functions on site using Workerware + a pre-bundled uBlock Origin
-- [ ] Add a "website self-destruct" button to the settings menu
-- [ ] Transport Options Swapping on Frame (Settings Menu doesn't swap)
 - [ ] Implement advanced data URI system
 - [ ] Allow custom Wisp urls from the settings menu (not config side)
+- [ ] Setting to open multiple stealth frames; basically about:blank but using our system. Pops out in another tab
+- [x] Hide local browser history on launch - done
+- [x] Setting to open about:blank and blob frames - done
+- [x] Transport Options Swapping on Frame (Settings Menu doesn't swap) - done
 - [x] Update respective site branding - done
 - [x] Fix GeForce Now support - done
 - [x] Swap to wisp-js over wisp-server-node for security and performance - done
