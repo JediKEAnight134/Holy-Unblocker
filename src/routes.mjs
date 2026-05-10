@@ -102,6 +102,7 @@ let externalPages = {
   'titaniumnetwork-documentation': 'https://docs.titaniumnetwork.org',
   'status': 'https://status.titaniumnetwork.org',
   'patreon': 'https://www.patreon.com/invisiproxy',
+  'kofi': 'https://ko-fi.com/quiteafancyemerald',
   'titaniumnetwork-discord': 'https://discord.gg/CwWpdGkuWY',
   'truffled': 'https://truffled.lol',
   'rammerhead-discord': 'https://discord.gg/VNT4E7gN5Y',

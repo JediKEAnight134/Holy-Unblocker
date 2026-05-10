@@ -1069,18 +1069,15 @@ input[type='text'] {
 }
 
 .footersocials a {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
+  display: inline-grid;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
   padding: 8px;
   margin: 0 5px;
   border: 1px solid var(--nord4);
   border-radius: 50%;
-}
-
-.footersocials a .fab {
-  vertical-align: top;
 }
 
 /* -----------------------------------------------
