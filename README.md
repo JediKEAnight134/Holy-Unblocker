@@ -136,7 +136,7 @@ Either use the button above to deploy to the deployment options above or type th
 
 **THIS PROJECT REQUIRES NGINX NOT CADDY.** 
 
-Please ensure you are using Node 20.x as well:
+Please ensure you are using `Node 20.x` as well. `git` and `curl` are required dependencies:
 
 ```bash
 git clone https://github.com/QuiteAFancyEmerald/InvisiProxy.git
@@ -168,7 +168,7 @@ This website is hosted locally with Scramjet, Ultraviolet (Wisp, Bare-Mux, Epoxy
 ### For security reasons when hosting with a reverse proxy PLEASE use NGINX not Caddy. This is due to wisp-js using loopbacks.
 
 #### Detailed Setup (Ubuntu Example)
-You will need Node.js 20.x and Git installed; below is an example for Debian/Ubuntu setup.
+You will need `Node.js 20.x`, `curl` and `git` installed; below is an example for Debian/Ubuntu setup.
 <details>
 
 For simplicity sake you can join the TN discord at discord.gg/unblock and request for mirror site links (that are restocked and unblocked).
