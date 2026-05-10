@@ -5,26 +5,36 @@
       <h4>{{mask}}{{InvisiProxy, a private web proxy service.}}</h4>
     </div>
     <p><strong>{{mask}}{{Effective Date: 07-16-2021}}</strong></p>
-    <p><strong>{{mask}}{{Updated Date: 04-12-2026}}</strong></p>
+    <p><strong>{{mask}}{{Updated Date: 05-10-2026}}</strong></p>
     <h4>{{mask}}{{What is InvisiProxy?}}</h4>
     <p>
-      {{mask}}{{ InvisiProxy LTS, an experimental web proxy service, can bypass
-      web filters or "blockers" regardless of whether the method of censorship
-      is client-side or network-based. This includes the potential ability to
-      bypass content blockers from governments, chrome extensions, localized
-      client firewalls, and network-related filters.<br />This project serves
-      mostly as a proof of concept for the ideal clientless solution to
-      bypassing censorship. Being a secure web proxy service, it supports
-      numerous sites while being updated frequently and concentrating on detail
-      with design, mechanics, and features. }}
+      {{mask}}{{ InvisiProxy LTS is a web proxy service that helps you access
+      websites that may be blocked by your network, government or policy all
+      within your browser with no download or setup. It does this securely and
+      with additional privacy features. Browse Tor/Onion sites in any browser,
+      hide browsing activity and bypass filters. This includes the potential
+      ability to bypass content blockers from governments, chrome extensions,
+      localized client firewalls, and network-related filters.<br />This project
+      serves mostly as a proof of concept for the ideal clientless solution to
+      bypassing censorship. }}
     </p>
     <h4>Is any data being collected?</h4>
     <p>
       {{mask}}{{ Nope! No data is logged or collected by any of our web proxies
-      featured. InvisiProxy LTS values its statement of ending intenet
-      censorship along with valuing user privacy. This service is made to be as
-      transparent as possible and remember you can self-host at any time to
-      ensure you are in control over everything.
+      featured. Logging is disabled to ensure user privacy on the backend.
+      NextDNS queries are adjusted to not log client IPs or domains and store in
+      Switzerland. NextDNS log retention for respective numerical values is
+      minimal and focused on ensuring the service operates smoothly. Cloudflare
+      is utilized for this project to improve performance and have easier DNS
+      management due to the scope of this project. At a minimum Cloudflare
+      numerical values are utilized for tracking visits and page views
+      indicating when server upgrades are needed. NGINX is set to store no logs.
+      InvisiProxy LTS values its statement of ending internet censorship along
+      with valuing user privacy. Outside of this the Wisp protocol (to proxy TCP
+      connections) is used with epoxy-transport and libcurl-transport for
+      end-to-end encryption by running SSL/TLS inside webassembly. This service
+      is made to be as transparent as possible and remember you can self-host at
+      any time to ensure you are in control over everything.
       <br /><br />If you wish to make a privacy statement or request please
       contact us via Discord. }}
     </p>
@@ -43,8 +53,8 @@
       this project leverages the following benefits: }}
     </p>
     <p>
-      {{mask}}{{ Performance: The Wisp protocol optimizes data transfer speeds,
-      ensuring that users experience minimal latency while browsing. }}
+      {{mask}}{{ Performance: The Wisp protocol optimizes TCP data transfer
+      speeds, ensuring that users experience minimal latency while browsing. }}
     </p>
     <p>
       {{mask}}{{ Compatibility: Wisp is built to be compatible with a wide range
@@ -86,7 +96,7 @@
     </p>
     <p>
       {{mask}}{{ Encryption: InvisiProxy LTS utilizes advanced proxy
-      technologies that focus on encryption and secure data transfer,
+      technologies that focus on end-to-end encryption and secure data transfer,
       particularly in the context of URL rewriting proxies. NOTE: This is still
       a massive work in progress and open to contributions. }}
     </p>
@@ -94,12 +104,12 @@
       {{mask}}{{ Regular Audits: Conducting regular security audits to identify
       and address potential vulnerabilities. }}
     </p>
-    <h4 id="Cookies">Cookie Usage</h4>
+    <h4 id="Cookies">Additional Usage</h4>
     <p>
-      {{mask}}{{ InvisiProxy uses "Cookies", Local Storage and similar
-      technologies to maintain a user session (described more below) and store
+      {{mask}}{{ InvisiProxy uses "Cookies", IndexedDB, localStorage, and
+      sessionStorage to maintain a user session (described more below) and store
       your preferences on your computer. All of this information is completely
-      private being only local content with no analytical purposes. }}
+      private being only local content with ZERO analytical purposes. }}
     </p>
     <p>
       {{mask}}{{ A cookie is a string of information that a website stores on a
@@ -108,10 +118,19 @@
       useablity with the Settings menu, and lastly for user preferences. Users
       who do not wish to have cookies placed on their computers should set their
       browsers to refuse cookies before using InvisiProxy's websites, with the
-      drawback that certain features of InvisiProxy may not function properly
-      without the aid of cookies. No cookies are stored for analytical purposes
-      only functions such as the Tab Cloak menu, etc. rely on it for storing
-      data locally. }}
+      drawback that certain features of InvisiProxy WILL not function properly
+      without the aid of cookies, localStorage or IndexedDB. No cookies,
+      IndexedDB, localStorage, or sessionStorage features are stored for
+      analytical purposes only functions (Scramjet (Caching proxied assets,
+      session state, etc.), Autocomplete (Proxied), Setting Menu: Tab Cloak,
+      Icon Presets, Transport Options, Search Engines, Theming, Sandboxing, Tor
+      Routing, Hide Ads, Hidden History, and Region Swapping) rely on it for
+      storing persistent data locally. }}
+    </p>
+    <p>
+      {{mask}}{{ In addiition, InvisiProxy uses Service Workers as a technology
+      for our web proxies. This enables the ability to intercept respective
+      network traffic, etc. and is a core function for the project.}}
     </p>
     <p>
       {{mask}}{{ By continuing to navigate our website without changing your
@@ -125,7 +144,11 @@
       discretion. InvisiProxy LTS encourages visitors to frequently check this
       page for any changes to its Privacy Policy. Your continued use of this
       site after any change in this Privacy Policy will constitute your
-      acceptance of such change. }}
+      acceptance of such change. In the case of any abuse or DDOS attacks,
+      InvisiProxy LTS may be forced to temporarily log data to mitigate the
+      attack and ensure the service remains operational. In such cases, any
+      logged data will be securely deleted immediately after the attack is
+      mitigated. }}
     </p>
     <h4 id="Credit">Contact Information &amp; Credit</h4>
     <p>

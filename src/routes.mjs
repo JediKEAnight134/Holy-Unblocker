@@ -57,7 +57,7 @@ let pages = {
   s: 'pages/frame.html',
   browsing: 'pages/surf.html',
   credits: 'pages/nav/credits.html',
-  terms: 'pages/nav/terms.html',
+  privacy: 'pages/nav/privacy.html',
   /* Games */
   games: 'pages/nav/directory.html',
   'web-games': 'pages/nav/games.html',

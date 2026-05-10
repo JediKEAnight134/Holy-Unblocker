@@ -606,7 +606,7 @@ const preparePage = async () => {
 
     tiktok: urlHandler(sjUrl('https://www.tiktok.com')),
 
-    hianime: urlHandler(sjUrl('https://www.hianime.to')),
+    animetsu: urlHandler(sjUrl('https://animetsu.net')),
 
     twitter: urlHandler(sjUrl('https://twitter.com')),
 
@@ -820,7 +820,7 @@ const preparePage = async () => {
   prSet('pr-gf', 'geforcenow');
   prSet('pr-sp', 'spotify');
   prSet('pr-tt', 'tiktok');
-  prSet('pr-ha', 'hianime');
+  prSet('pr-ha', 'animetsu');
   prSet('pr-tw', 'twitter');
   prSet('pr-tc', 'twitch');
   prSet('pr-ig', 'instagram');
