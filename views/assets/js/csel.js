@@ -470,7 +470,7 @@ if (document.getElementById('csel')) {
     const value = e.target.value;
 
     value === 'none'
-      ? (removeStorage('HistoryHide'), removeCookie('HistoryHide'))
+      ? (setStorage('HistoryHide', 'none'), removeCookie('HistoryHide'))
       : (setStorage('HistoryHide', value), setCookie('HistoryHide', 'true'));
 
     if (e.isTrusted) location.reload();
@@ -553,10 +553,10 @@ useStorageArgs('UseSocks5', (s) => {
 useStorageArgs('HistoryHide', (s) => {
   classUpdateHandler(
     document.getElementsByClassName('history-toggle'),
-    s || 'none'
+    s || 'hidehistory'
   )();
 
-  if (s === 'hidehistory') {
+  if (s === 'hidehistory' || !s) {
     setCookie('HistoryHide', 'true');
   } else {
     removeCookie('HistoryHide');
