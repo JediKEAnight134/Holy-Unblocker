@@ -17,7 +17,7 @@
     "manual-start": "node run-command.mjs start",
     "kill": "node run-command.mjs stop kill",
     "fetch-adblock": "curl -o views/assets/txt/blacklist.txt https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt",
-    "build": "npm run fetch-adblock && node run-command.mjs build && cd lib/rammerhead && npm run build",
+    "build": "node run-command.mjs build && cd lib/rammerhead && npm run build",
     "clear": "node run-command.mjs clean",
     "clean": "node run-command.mjs clean format",
     "proxy-validator": "node proxyServiceValidator.js",

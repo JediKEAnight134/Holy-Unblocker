@@ -145,6 +145,7 @@ cd InvisiProxy
 
 # Edit config.js and set production to true if you want to use pm2 (Allows for easier VPS hosting)
 npm run fresh-install
+npm run fetch-adblock
 npm start
 
 # Or on subsequent uses...
