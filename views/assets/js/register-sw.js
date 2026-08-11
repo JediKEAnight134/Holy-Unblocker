@@ -5,7 +5,7 @@
     },
     swScope = '{{route}}{{/}}',
     uvSwScope = '{{route}}{{/uv/}}',
- swAllowedHostnames = ['localhost', '10.116.15.3'],
+ swAllowedHostnames = ['localhost', '10.116.0.1'],
 wispUrl = 'wss://anura.pro/',
     proxyUrl = {
       tor: 'socks5h://localhost:9050',
