@@ -143,7 +143,7 @@ commands: for (let i = 2; i < process.argv.length; i++)
        * rewrites are not intended to be used by any of those files.
        * Assets are compiled separately, before the rest of the files.
        */
-      const ignoredDirectories = ['dist', 'dist-new', 'assets', 'uv', 'scram', 'archive'];
+      const ignoredDirectories = ['dist', 'dist-new', 'assets', 'uv', 'scram'];
       const ignoredFileTypes = /\.map$/;
 
       const compile = (
@@ -173,8 +173,8 @@ commands: for (let i = 2; i < process.argv.length; i++)
                 import.meta.url
               )
             );
-          if (fileStats.isFile() && !existsSync(targetPath))
-            if (/\.(?:html|js|css|json|txt|xml)$/.test(file) && applyRewrites)
+          if (fileStats.isFile() && !existsSync(targetPath)) {
+            if (/\.(?:html|js|css|json|txt|xml)$/.test(file) && applyRewrites) {
               writeFileSync(
                 targetPath,
                 paintSource(
@@ -183,10 +183,21 @@ commands: for (let i = 2; i < process.argv.length; i++)
                   )
                 )
               );
-            else copyFileSync(base + dir + '/' + file, targetPath);
-          else if (fileStats.isDirectory()) {
+              // Print the file being compiled
+              if (config.verbose) {
+                console.log(`[Build] Compiling file "${file}" from ${base + dir + '/'} to ${targetPath}`);
+                console.log(`This project has moved to https://github.com/InvisiProxy/InvisiProxyLTS. This version of InvisiProxy is no longer maintained. Please update your instance.`);
+              }
+            } else {
+              copyFileSync(base + dir + '/' + file, targetPath);
+            }
+          } else if (fileStats.isDirectory()) {
             if (!existsSync(targetPath)) mkdirSync(targetPath);
             compile(file, base + dir + '/', outDir, initialDir, applyRewrites);
+            // Print the directory being compiled
+            if (config.verbose){
+              console.log(`[Build] Compiling directory "${file}" from ${base + dir + '/'} to ${targetPath}`);
+            }
           }
         });
 
@@ -216,6 +227,10 @@ commands: for (let i = 2; i < process.argv.length; i++)
 
         const prefix = prefixName + '/',
           prefixUrl = new URL('./views/dist-new/' + prefix, import.meta.url);
+          // Print the directory being compiled
+          if (config.verbose){
+            console.log(`[Build] Compiling "${prefixName}" from ${relSrc} to ${prefixUrl}`);
+          }
         if (!existsSync(prefixUrl)) mkdirSync(prefixUrl);
 
         compile(relSrc, '', prefix);
@@ -239,11 +254,6 @@ commands: for (let i = 2; i < process.argv.length; i++)
         });
 
       compile('./views');
-
-      // Compile the archive directory separately.
-      mkdirSync('./views/dist-new/archive');
-      if (existsSync('./views/archive'))
-        compile('./views/archive', '', 'archive/');
 
       const createFile = (location, text) => {
         writeFileSync(
@@ -281,7 +291,6 @@ commands: for (let i = 2; i < process.argv.length; i++)
         };
         await compress('./views/dist-new');
         await compress('./views/dist-new/pages', true);
-        await compress('./views/dist-new/archive', true);
       }
 
       rmSync(distFinal, { force: true, recursive: true });

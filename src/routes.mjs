@@ -58,12 +58,7 @@ let pages = {
   browsing: 'pages/surf.html',
   credits: 'pages/nav/credits.html',
   privacy: 'pages/nav/privacy.html',
-  /* Games */
-  games: 'pages/nav/directory.html',
-  'web-games': 'pages/nav/games.html',
   partners: 'pages/nav/partners.html',
-  emulators: 'pages/nav/emulators.html',
-  'flash-games': 'pages/nav/flash.html',
   /* Proxies */
   ultraviolet: 'pages/proxnav/ultraviolet.html',
   scramjet: 'pages/proxnav/scramjet.html',
@@ -73,9 +68,6 @@ let pages = {
   youtube: 'pages/proxnav/preset/youtube.html',
   apps: 'pages/proxnav/preset/applications.html',
   /* Misc */
-  flash: 'archive/gfiles/flash/index.html',
-  webretro: 'archive/gfiles/rarch/index.html',
-  'vibe-os': 'archive/vibeOS/index.html',
   'robots.txt': 'robots.txt',
   'sitemap.xml': 'sitemap.xml',
   'browserconfig.xml': 'browserconfig.xml',
@@ -83,7 +75,7 @@ let pages = {
 
 let externalPages = {
   github: {
-    default: 'https://github.com/QuiteAFancyEmerald/InvisiProxy',
+    default: 'https://github.com/QuiteAFancyEmerald/InvisiProxy-Legacy',
     aos: 'https://github.com/michalsnik/aos',
     'bare-module': 'https://github.com/motortruck1221/bare-as-module3',
     'bare-mux': 'https://github.com/MercuryWorkshop/bare-mux',
@@ -98,22 +90,16 @@ let externalPages = {
   },
   codespaces: 'https://github.com/codespaces',
   'tor-project': 'https://tb-manual.torproject.org/installation',
-  'titaniumnetwork-documentation': 'https://docs.titaniumnetwork.org',
-  'status': 'https://status.titaniumnetwork.org',
   'patreon': 'https://www.patreon.com/invisiproxy',
   'kofi': 'https://ko-fi.com/quiteafancyemerald',
-  'titaniumnetwork-discord': 'https://discord.gg/CwWpdGkuWY',
   'truffled': 'https://truffled.lol',
-  'freedomproject': 'https://0xdc.icu',
-  'mrrowisp': 'https://github.com/soap-phia/mrrowisp',
+  'freedomproject': 'https://nullatenus.com',
+  'wispurr': 'https://github.com/sylvieisnton/wispurr',
+  'invisiproxy': 'https://invisiproxy.com/mirrors',
 };
 
 // Override the route names below when usingSEO is disabled in config.json.
 let altPaths = {
-  games: 'books',
-  'web-games': 'dictionary',
-  emulators: 'catalogue',
-  'flash-games': 'textbook',
   ultraviolet: 'networking',
   scramjet: 'working',
   uverror: 'network-error',
@@ -121,9 +107,6 @@ let altPaths = {
   youtube: 'wiki',
   partners: 'interface',
   apps: 'software',
-  flash: 'whiteboard',
-  webretro: 'notebook',
-  'vibe-os': 'pencil',
   github: {
     'bare-module': 'module',
     'bare-mux': 'bm',
@@ -134,13 +117,12 @@ let altPaths = {
     ultraviolet: 'nt',
     wisp: 'router',
   },
-  'titaniumnetwork-documentation': 'docs',
   codespaces: 'codesp',
   'tor-project': 'tr',
-  'titaniumnetwork-discord': 'social',
   'truffled': 'educational',
   'freedomproject': 'frpu',
-  'mrrowisp': 'mrw',
+  'wispurr': 'wsp',
+  'invisiproxy': 'ivps',
   /* Raw File Names */
   files: {
     'sw.js': 'service.js',
@@ -166,7 +148,6 @@ let altPaths = {
   },
   /* Prefixes */
   prefixes: {
-    roms: 'ms',
     uv: 'network',
     scram: 'worker',
     epoxy: 'epoch',

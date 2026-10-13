@@ -373,25 +373,11 @@ const preparePage = async () => {
 
     scramjet: urlHandler(sjUrl),
 
-    terraria: urlHandler(location.protocol + '//a.' + getDomain()),
-
-    webleste: urlHandler(location.protocol + '//b.' + getDomain()),
-
-    osu: urlHandler(location.origin + '{{route}}{{/archive/osu}}'),
-
-    agar: sjPreset('https://agar.io'),
-
     tru: sjPreset('https://truffled.lol/g'),
 
-    prison: sjPreset('https://vimlark.itch.io/pick-up-prison'),
+    youtube: sjPreset('https://youtube.com'),
 
-    speed: sjPreset('https://captain4lk.itch.io/what-the-road-brings'),
-
-    heli: sjPreset('https://benjames171.itch.io/helo-storm'),
-
-    youtube: urlHandler(uvUrl('https://youtube.com')),
-
-    invidious: sjPreset('https://invidious.snopyta.org'),
+    invidious: sjPreset('https://docs.invidious.io/instances'),
 
     chatgpt: sjPreset('https://chat.openai.com/chat'),
 
@@ -405,7 +391,7 @@ const preparePage = async () => {
 
     tiktok: sjPreset('https://www.tiktok.com'),
 
-    animetsu: sjPreset('https://animetsu.net'),
+    gemini: sjPreset('https://gemini.google.com/app'),
 
     twitter: sjPreset('https://twitter.com'),
 
@@ -588,7 +574,7 @@ const preparePage = async () => {
   prSet('pr-gf', 'geforcenow');
   prSet('pr-sp', 'spotify');
   prSet('pr-tt', 'tiktok');
-  prSet('pr-ha', 'animetsu');
+  prSet('pr-ha', 'gemini');
   prSet('pr-tw', 'twitter');
   prSet('pr-tc', 'twitch');
   prSet('pr-ig', 'instagram');
@@ -668,10 +654,6 @@ const preparePage = async () => {
 
   const navLists = {
     // Pair an element ID with a JSON file name. They are identical for now.
-    'emu-nav': 'emu-nav',
-    'emulib-nav': 'emulib-nav',
-    'flash-nav': 'flash-nav',
-    'h5-nav': 'h5-nav',
     'par-nav': 'par-nav',
   };
 
@@ -687,17 +669,11 @@ const preparePage = async () => {
       // Load the JSON lists into specific HTML parent elements as groups of
       // child elements, if the parent element is found.
       switch (filename) {
-        case 'emu-nav':
-        case 'emulib-nav':
-        case 'par-nav':
-        case 'h5-nav': {
+        case 'par-nav': {
           const dirnames = {
               // Set the directory of where each item of the corresponding JSON
               // list will be retrieved from.
-              'emu-nav': 'emu',
-              'emulib-nav': 'emulib',
               'par-nav': 'par',
-              'h5-nav': 'h5g',
             },
             dir = dirnames[filename],
             // Add a little functionality for each list item when clicked on.
@@ -737,24 +713,10 @@ const preparePage = async () => {
             // Which function is used for the click event is determined by
             // the corresponding location/index in the dirnames object.
             const functionsList = [
-              // emu-nav
-              () => goFrame(item.path),
-              // emulib-nav
-              () =>
-                goFrame(
-                  '{{route}}{{/webretro}}?core=' +
-                    item.core +
-                    '&rom=' +
-                    item.rom
-                ),
               // par-nav
               item.custom && goProx[item.custom]
                 ? () => goProx[item.custom]('stealth')
                 : () => {},
-              // h5-nav
-              item.custom && goProx[item.custom]
-                ? () => goProx[item.custom]('window')
-                : () => goFrame('{{route}}{{/archive/g/}}' + item.path),
             ];
 
             a.addEventListener(
@@ -770,25 +732,7 @@ const preparePage = async () => {
           break;
         }
 
-        case 'flash-nav':
-          for (let i = 0; i < data.length; i++) {
-            // Load each item as an anchor tag with a short title and click
-            // event listener.
-            const item = data[i],
-              a = document.createElement('a');
-            a.href = '#';
-            a.textContent = item.slice(0, -4);
 
-            a.addEventListener('click', (e) => {
-              e.preventDefault();
-              goFrame('{{route}}{{/flash}}?swf=' + item);
-            });
-
-            navList.appendChild(a);
-          }
-          break;
-
-        // No default case.
         }
       }
     }
