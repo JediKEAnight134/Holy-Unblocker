@@ -403,7 +403,7 @@ packages:
     resolution: {integrity: sha512-SXsM27SGH3yTWKc2fKR4SYNxsmnvuBQ9dd6QHtEWmiZ/VqaOYPAIlS8+vMcn27YLtAEBGvNRSh3TPNvtjZgfqA==}
 
   '@titaniumnetwork-dev/ultraviolet@https://github.com/titaniumnetwork-dev/Ultraviolet/releases/download/v3.2.10-headers/titaniumnetwork-dev-ultraviolet-3.2.10-headers.tgz':
-    resolution: {tarball: https://github.com/titaniumnetwork-dev/Ultraviolet/releases/download/v3.2.10-headers/titaniumnetwork-dev-ultraviolet-3.2.10-headers.tgz}
+    resolution: {integrity: sha512-PStkZYzmRKfPOZtYxw+7e/fYlfeqgHq2qErxG7V95lW6dmOAKPJkwqRxnL/h6kuJydX+xhXNPhL5zfo3ZKqimA==, tarball: https://github.com/titaniumnetwork-dev/Ultraviolet/releases/download/v3.2.10-headers/titaniumnetwork-dev-ultraviolet-3.2.10-headers.tgz}
     version: 3.2.10
 
   '@tootallnate/quickjs-emscripten@0.23.0':
